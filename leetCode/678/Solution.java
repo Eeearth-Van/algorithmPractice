@@ -11,30 +11,25 @@ public class Solution {
     }
     
     public static boolean checkValidString(String s) {
-        int l = 0, star = 0, len = s.length();
+        int l = 0, len = s.length();
         if (len == 0) return true;
         for (int i = 0; i < len; i++) {
-            if ('(' == (s.charAt(i))) {
+            if ('(' == (s.charAt(i)) || '*' == (s.charAt(i))) {
                 l++;
-            } else if ('*' == (s.charAt(i))) {
-                star++;
             } else {
                 l--;
                 //右括号太多
-                if (l + star < 0) return false;
+                if (l < 0) return false;
             }
         }
         l = 0;
-        star = 0;
         for (int i = len - 1; i >= 0; i--) {
-            if (')' == (s.charAt(i))) {
+            if (')' == (s.charAt(i)) || '*' == (s.charAt(i))) {
                 l++;
-            } else if ('*' == (s.charAt(i))) {
-                star++;
             } else {
                 l--;
                 //左括号太多
-                if (l + star < 0) return false;
+                if (l < 0) return false;
             }
         }
         return true;
