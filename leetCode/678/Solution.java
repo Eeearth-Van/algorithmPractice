@@ -10,7 +10,7 @@ public class Solution {
         System.out.println(checkValidString(""));
     }
     
-    public boolean checkValidString(String s) {
+    public static boolean checkValidString(String s) {
         int l = 0, star = 0, len = s.length();
         if (len == 0) return true;
         for (int i = 0; i < len; i++) {
