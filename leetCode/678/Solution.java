@@ -4,8 +4,12 @@
  * @author: Kevin
  * @create: 2019-05-28 13:21
  **/
-class Solution1 {
+public class Solution {
 
+    public static void main(String[] args) {
+        System.out.println(checkValidString(""));
+    }
+    
     public boolean checkValidString(String s) {
         int l = 0, star = 0, len = s.length();
         if (len == 0) return true;
@@ -34,11 +38,5 @@ class Solution1 {
             }
         }
         return true;
-    }
-}
-
-public class Solution {
-    public static void main(String[] args) {
-        System.out.println(new Solution1().checkValidString(""));
     }
 }
