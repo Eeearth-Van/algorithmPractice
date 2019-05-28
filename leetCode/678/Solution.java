@@ -1,18 +1,11 @@
-package com.live2d.wy;
-
 /**
- * @program: wy
- * @package:
- * @description:
+ * @program: ttt
+ * @description:leetCode678
  * @author: Kevin
  * @create: 2019-05-28 13:21
  **/
 class Solution1 {
-    /**
-     *
-     * @param s
-     * @return
-     */
+
     public boolean checkValidString(String s) {
         int l = 0, star = 0, len = s.length();
         if (len == 0) return true;
@@ -36,7 +29,7 @@ class Solution1 {
                 star++;
             } else {
                 l--;
-                //右括号太多
+                //左括号太多
                 if (l + star < 0) return false;
             }
         }
