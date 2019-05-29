@@ -1,10 +1,22 @@
+package com.live2d.wy.controller;
 
- /**
- * @program: ttt
- * @description:leetCode826
+/**
+ * @program: wy
+ * @package:
+ * @description:
  * @author: Kevin
  * @create: 2019-05-29 09:02
  **/
+public class eController1 {
+    public static void main(String[] args) {
+        int[] difficulty = {68, 35, 52, 47, 86};
+        int[] profit = {67, 17, 1, 81, 3};
+        int[] workers = {92, 10, 85, 84, 82};
+        Solution solution = new Solution();
+        System.out.println(solution.maxProfitAssignment(difficulty, profit, workers));
+    }
+}
+
 class Solution {
     public int maxProfitAssignment(int[] difficulty, int[] profit, int[] worker) {
         int len = difficulty.length;
@@ -12,14 +24,18 @@ class Solution {
             return 0;
         }
         int result = 0, workerLen = worker.length, temp = difficulty.length - 1;
+        Sort sort = new Sort();
+        sort.difficulty = difficulty;
+        sort.profit = profit;
+        sort.workers = worker;
+        sort.quickSort(0, workerLen - 1);
+        sort.quickSort2(0, len - 1);
         //从小到大
-        quickSort(worker, 0, workerLen - 1);
-        quickSort2(profit, difficulty, 0, len - 1);
         //牛逼的人先带着你的活上路吧
         for (int i = workerLen - 1; i >= 0 && workerLen > 0; i--) {
             for (; temp >= 0; temp--) {
-                if (difficulty[temp] <= worker[i]){
-                    result += profit[temp];
+                if (sort.difficulty[temp] <=  sort.workers[i]) {
+                    result +=  sort.profit[temp];
                     break;
                 }
             }
@@ -27,82 +43,85 @@ class Solution {
         return result;
     }
 
+}
+
+class Sort {
+    int[] difficulty;
+    int[] profit;
+    int[] workers;
 
     /**
      * 一个数组快速排序
      *
-     * @param arrays
      * @param left
      * @param right
      */
-    void quickSort(int[] arrays, int left, int right) {
+    void quickSort(int left, int right) {
         int i, j, t, temp, temp2;
         if (left > right) {
             return;
         }
-        temp = arrays[left];
+        temp = workers[left];
         i = left;
         j = right;
         while (i != j) {
             //先，从右向左
-            while (arrays[j] >= temp && i < j) {
+            while (workers[j] >= temp && i < j) {
                 j--;
             }
-            while (arrays[i] <= temp && i < j) {
+            while (workers[i] <= temp && i < j) {
                 i++;
             }
             if (i < j) {
-                t = arrays[i];
-                arrays[i] = arrays[j];
-                arrays[j] = t;
+                t = workers[i];
+                workers[i] = workers[j];
+                workers[j] = t;
             }
         }
-        arrays[left] = arrays[i];
-        arrays[i] = temp;
-        quickSort(arrays, left, i - 1);
-        quickSort(arrays, i + 1, right);
+        workers[left] = workers[i];
+        workers[i] = temp;
+        quickSort(left, i - 1);
+        quickSort(i + 1, right);
     }
 
     /**
      * 俩数组快速排序
      *
-     * @param arrays
-     * @param arrays2
      * @param left
      * @param right
      */
-    void quickSort2(int[] arrays, int[] arrays2, int left, int right) {
+    void quickSort2(int left, int right) {
         int i, j, t, temp, temp2;
         if (left > right) {
             return;
         }
-        temp = arrays[left];
-        temp2 = arrays2[left];
+        temp = profit[left];
+        temp2 = difficulty[left];
         i = left;
         j = right;
 
         while (i != j) {
             //先，从右向左
-            while (arrays[j] >= temp && i < j) {
+            while (profit[j] >= temp && i < j) {
                 j--;
             }
-            while (arrays[i] <= temp && i < j) {
+            while (profit[i] <= temp && i < j) {
                 i++;
             }
             if (i < j) {
-                t = arrays[i];
-                arrays[i] = arrays[j];
-                arrays[j] = t;
-                t = arrays2[i];
-                arrays2[i] = arrays2[j];
-                arrays2[j] = t;
+                t = profit[i];
+                profit[i] = profit[j];
+                profit[j] = t;
+                t = difficulty[i];
+                difficulty[i] = difficulty[j];
+                difficulty[j] = t;
             }
         }
-        arrays[left] = arrays[i];
-        arrays[i] = temp;
-        arrays2[left] = arrays2[i];
-        arrays2[i] = temp2;
-        quickSort2(arrays, arrays2, left, i - 1);
-        quickSort2(arrays, arrays2, i + 1, right);
+        profit[left] = profit[i];
+        profit[i] = temp;
+        difficulty[left] = difficulty[i];
+        difficulty[i] = temp2;
+        quickSort2(left, i - 1);
+        quickSort2(i + 1, right);
     }
 }
