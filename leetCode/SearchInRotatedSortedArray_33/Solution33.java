@@ -1,4 +1,4 @@
-package SearchInRotatedSortedArray;
+package SearchInRotatedSortedArray_33;
 
 class Solution33Test {
     public static void main(String[] args) {
