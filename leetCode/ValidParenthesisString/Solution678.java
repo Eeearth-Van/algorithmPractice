@@ -6,7 +6,7 @@ package ValidParenthesisString;
  * @author: Kevin
  * @create: 2019-05-28 13:21
  **/
-class SolutionTest678 {
+class Solution678Test {
 
     public static void main(String[] args) {
         Solution678 solution = new Solution678();

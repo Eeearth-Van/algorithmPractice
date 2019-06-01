@@ -7,7 +7,7 @@ package MostProfitAssigningWork;
  * @author: Kevin
  * @create: 2019-05-29 09:02
  **/
-class SolutionTest826 {
+class Solution826Test {
     public static void main(String[] args) {
         int[] difficulty = {68, 35, 52, 47, 86};
         int[] profit = {67, 17, 1, 81, 3};

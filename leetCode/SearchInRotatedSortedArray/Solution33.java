@@ -1,6 +1,15 @@
 package SearchInRotatedSortedArray;
 
-class Solution33 {
+class Solution33Test {
+    public static void main(String[] args) {
+        int[] nums = {2, 3, 4, 0, 1};
+        int target = 0;
+        Solution33 solution = new Solution33();
+        System.out.println(solution.search(nums,target));
+    }
+}
+
+public class Solution33 {
 
     int key;
     int[] arr;
