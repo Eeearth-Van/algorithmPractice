@@ -1,16 +1,21 @@
+package ValidParenthesisString;
+
 /**
  * @program: ttt
  * @description:leetCode678
  * @author: Kevin
  * @create: 2019-05-28 13:21
  **/
-public class Solution {
+class SolutionTest678 {
 
     public static void main(String[] args) {
-        System.out.println(checkValidString(""));
+        Solution678 solution = new Solution678();
+        System.out.println(solution.checkValidString(""));
     }
-    
-    public static boolean checkValidString(String s) {
+
+}
+public class Solution678 {
+    public boolean checkValidString(String s) {
         int l = 0, len = s.length();
         if (len == 0) return true;
         for (int i = 0; i < len; i++) {
@@ -34,8 +39,7 @@ public class Solution {
         }
         return true;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> fe81447c3bdc12b9a16d59a894acede332af0927
+
+
+

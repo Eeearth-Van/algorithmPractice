@@ -1,4 +1,4 @@
-package com.live2d.wy.controller;
+package MostProfitAssigningWork;
 
 /**
  * @program: wy
@@ -7,17 +7,17 @@ package com.live2d.wy.controller;
  * @author: Kevin
  * @create: 2019-05-29 09:02
  **/
-public class eController1 {
+class SolutionTest826 {
     public static void main(String[] args) {
         int[] difficulty = {68, 35, 52, 47, 86};
         int[] profit = {67, 17, 1, 81, 3};
         int[] workers = {92, 10, 85, 84, 82};
-        Solution solution = new Solution();
+        Solution826 solution = new Solution826();
         System.out.println(solution.maxProfitAssignment(difficulty, profit, workers));
     }
 }
 
-class Solution {
+public class Solution826 {
     public int maxProfitAssignment(int[] difficulty, int[] profit, int[] worker) {
         int len = difficulty.length;
         if (len == 0) {
@@ -30,8 +30,7 @@ class Solution {
         sort.workers = worker;
         sort.quickSort(0, workerLen - 1);
         sort.quickSort2(0, len - 1);
-        //´ÓÐ¡µ½´ó
-        //Å£±ÆµÄÈËÏÈ´ø×ÅÄãµÄ»îÉÏÂ·°É
+        //ä»Žå°åˆ°å¤§æŽ’å¥½ï¼Œè®©åŽ‰å®³çš„äººå…ˆå¹²ï¼Œèƒ½åŠ›è¶Šå¤§è´£ä»»è¶Šå¤§~
         for (int i = workerLen - 1; i >= 0 && workerLen > 0; i--) {
             for (; temp >= 0; temp--) {
                 if (sort.difficulty[temp] <=  sort.workers[i]) {
@@ -51,7 +50,7 @@ class Sort {
     int[] workers;
 
     /**
-     * Ò»¸öÊý×é¿ìËÙÅÅÐò
+     * ä¸€ä¸ªæ•°ç»„çš„å¿«é€ŸæŽ’åº
      *
      * @param left
      * @param right
@@ -65,7 +64,7 @@ class Sort {
         i = left;
         j = right;
         while (i != j) {
-            //ÏÈ£¬´ÓÓÒÏò×ó
+            //ä»Žå³å‘å·¦
             while (workers[j] >= temp && i < j) {
                 j--;
             }
@@ -85,7 +84,7 @@ class Sort {
     }
 
     /**
-     * Á©Êý×é¿ìËÙÅÅÐò
+     * ä¿©æ•°ç»„çš„å¿«é€ŸæŽ’åº
      *
      * @param left
      * @param right
@@ -101,7 +100,7 @@ class Sort {
         j = right;
 
         while (i != j) {
-            //ÏÈ£¬´ÓÓÒÏò×ó
+            //ä»Žå³å‘å·¦
             while (profit[j] >= temp && i < j) {
                 j--;
             }

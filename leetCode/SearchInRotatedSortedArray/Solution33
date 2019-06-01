@@ -1,0 +1,48 @@
+package SearchInRotatedSortedArray;
+
+class Solution33 {
+
+    int key;
+    int[] arr;
+
+    public int search(int[] nums, int target) {
+        arr = nums;
+        key = target;
+        return binarySearch(0, arr.length - 1);
+    }
+
+    public int binarySearch(int hi, int ti) {
+        if (hi > ti) return -1;
+        int middle = (hi + ti) / 2;
+        if (hi == middle) {
+            if (arr[hi] == key) {
+                return hi;
+            } else if (arr[ti] == key) {
+                return ti;
+            } else {
+                return -1;
+            }
+        }
+        //head is bigger
+        if (arr[hi] > arr[ti]) {
+            if (arr[hi] < arr[middle]) {
+                if (arr[hi] <= key && key <= arr[middle]) return binarySearch(hi, middle);
+                else return binarySearch(middle + 1, ti);
+            } else {
+                if (arr[middle] <= key && key <= arr[ti]) return binarySearch(middle, ti);
+                else return binarySearch(hi, middle - 1);
+            }
+        } else {
+            if (arr[hi] > key || arr[ti] < key) return -1;
+            if (arr[middle] > key) {
+                //比关键字大则关键字在左区域
+                return binarySearch(hi, middle - 1);
+            } else if (arr[middle] < key) {
+                //比关键字小则关键字在右区域l
+                return binarySearch(middle + 1, ti);
+            } else {
+                return middle;
+            }
+        }
+    }
+}
