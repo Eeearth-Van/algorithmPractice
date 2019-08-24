@@ -1,4 +1,4 @@
-package MostProfitAssigningWork_826;
+package No826_MostProfitAssigningWork_medium;
 
 /**
  * @program: wy
