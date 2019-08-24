@@ -1,4 +1,4 @@
-package No42_TrappingRainWater_diffcult;
+package No42_TrappingRainWater_hard;
 
 /**
  * @program: wy

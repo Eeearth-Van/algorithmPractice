@@ -1,4 +1,4 @@
-package HammingDistance_461_easy;
+package No461_HammingDistance_easy;
 
 /**
  * @program: leetCode

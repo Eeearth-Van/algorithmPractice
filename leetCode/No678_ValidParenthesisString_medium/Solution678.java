@@ -1,4 +1,4 @@
-package ValidParenthesisString_678;
+package No678_ValidParenthesisString_medium;
 
 /**
  * @program: ttt

@@ -1,4 +1,4 @@
-package BestTimeToBuyAndSellStockII_122;
+package No122_BestTimeToBuyAndSellStockII_easy;
 
 /**
  * @program: wy

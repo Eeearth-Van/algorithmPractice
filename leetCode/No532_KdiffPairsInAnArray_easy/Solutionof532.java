@@ -1,4 +1,4 @@
-package KdiffPairsInAnArray_532_easy;
+package No532_KdiffPairsInAnArray_easy;
 
 import java.util.HashMap;
 

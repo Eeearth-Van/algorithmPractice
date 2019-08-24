@@ -1,4 +1,4 @@
-package letterCasePermutation_784_easy;
+package No784_letterCasePermutation_easy;
 
 import java.util.ArrayList;
 import java.util.List;
