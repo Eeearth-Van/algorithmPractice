@@ -18,8 +18,9 @@ class Solution42Test {
 
 public class Solution42 {
     public int trap(int[] height) {
-        if (height.length == 0) return 0;
-        int tempCount = 0, leftHeight = 0, leftIndex = 0, res = 0, length = height.length;
+        int length = height.length;
+        if (length < 2) return 0;
+        int tempCount = 0, leftHeight = 0, leftIndex = 0, res = 0;
 
         for (int i = 0; i < length; i++) {
             if (leftIndex == 0 && height[i] == 0) {
