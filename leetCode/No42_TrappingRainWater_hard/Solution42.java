@@ -10,18 +10,21 @@ package No42_TrappingRainWater_hard;
 class Solution42Test {
     public static void main(String[] args) {
         Solution42 solution42 = new Solution42();
-        //答案是14
+//        答案是14
+//        int[] height = {8, 5, 4, 1, 8, 9, 3, 0, 0};
         int[] height = {8, 5, 4, 1, 8, 9, 3, 0, 0};
         System.out.println(solution42.trap(height));
     }
 }
 
-public class Solution42 {
+/**
+ * 从左到右填坑，如果右边没有比左边高的就给左边降低高度
+ */
+/*public class Solution42 {
     public int trap(int[] height) {
         int length = height.length;
         if (length < 2) return 0;
         int tempCount = 0, leftHeight = 0, leftIndex = 0, res = 0;
-
         for (int i = 0; i < length; i++) {
             if (leftIndex == 0 && height[i] == 0) {
                 continue;
@@ -50,5 +53,66 @@ public class Solution42 {
         }
         return res;
     }
-}
+}*/
 
+/**
+ * 找到最高峰，两端向中间靠拢
+ */
+/*public class Solution42 {
+    public int trap(int[] height) {
+        int length = height.length;
+        if (length < 2) return 0;
+        int res = 0, maxIndex = 0, temp = 0, border = 0;
+        for (int i = 0; i < length; i++) {
+            if (height[i] > temp) {
+                temp = height[i];
+                maxIndex = i;
+            }
+        }
+        for (int i = 0; i < maxIndex + 1; i++) {
+            temp = height[i];
+            if (border > temp) {
+                res += border - temp;
+                continue;
+            }
+            border=temp;
+        }
+        border=0;
+        for (int i = length - 1; i > maxIndex; i--) {
+            temp = height[i];
+            if (border > temp) {
+                res += border - temp;
+                continue;
+            }
+            border=temp;
+        }
+        return res;
+    }
+
+}*/
+
+/**
+ * 两端向中间靠拢
+ */
+public class Solution42 {
+    public int trap(int[] height) {
+        int length = height.length;
+        if (length < 2) return 0;
+        int leftIndex = 0, rightIndex = length - 1, res = 0, temp;
+        int leftMax = height[0], rightMax = height[rightIndex];
+        while (leftIndex < rightIndex) {
+            if (height[leftIndex] < height[rightIndex]) {
+                temp = height[leftIndex];
+                leftMax = leftMax > temp ? leftMax : temp;
+                res += leftMax - temp;
+                leftIndex++;
+            } else {
+                temp = height[rightIndex];
+                rightMax = rightMax > temp ? rightMax : temp;
+                res += rightMax - temp;
+                rightIndex--;
+            }
+        }
+        return res;
+    }
+}
