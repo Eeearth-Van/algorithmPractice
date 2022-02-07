@@ -1,7 +1,5 @@
 package No21_MergeTwoSortedLists_easy;
 
-import com.sun.xml.internal.bind.v2.TODO;
-
 /**
  * @program: wy
  * @package:

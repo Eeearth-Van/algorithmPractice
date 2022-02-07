@@ -1,4 +1,4 @@
-package GreatestCommonDivisorOfStrings_5076;
+package AddingTwoNegabinaryNumbers_5078;
 
 import java.util.Arrays;
 
